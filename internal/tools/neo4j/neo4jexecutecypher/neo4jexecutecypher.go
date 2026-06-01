@@ -67,7 +67,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	cypherParameter := parameters.NewStringParameter("cypher", "The cypher to execute.")
 	dryRunParameter := parameters.NewBooleanParameterWithDefault(
 		"dry_run",

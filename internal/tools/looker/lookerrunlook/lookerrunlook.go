@@ -73,7 +73,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	lookidParameter := parameters.NewStringParameter("look_id", "The id of the look to run.")
 	limitParameter := parameters.NewIntParameterWithDefault("limit", 500, "The row limit. Default 500")
 

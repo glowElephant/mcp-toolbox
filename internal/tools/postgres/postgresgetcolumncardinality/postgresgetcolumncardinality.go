@@ -85,7 +85,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithDefault("schema_name", "public", "Optional: The schema name in which the table is present."),
 		parameters.NewStringParameterWithRequired("table_name", "Required: The table name in which the column is present.", true),

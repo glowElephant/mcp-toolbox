@@ -79,7 +79,7 @@ type Tool struct {
 
 var _ tools.Tool = Tool{}
 
-func (c Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (c Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	return Tool{
 		Config:   c,
 		manifest: tools.Manifest{Description: c.Description, Parameters: c.Parameters.Manifest(), AuthRequired: c.AuthRequired},

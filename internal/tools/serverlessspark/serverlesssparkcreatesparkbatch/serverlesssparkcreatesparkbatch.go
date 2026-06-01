@@ -57,7 +57,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 // Initialize creates a new Tool instance.
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	return createbatch.NewTool(cfg.Config, cfg, srcs, &SparkBatchBuilder{})
 }
 

@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	bucketParam := parameters.NewStringParameter(bucketKey, "Name of the Cloud Storage bucket to create.")
 	locationParam := parameters.NewStringParameterWithRequired(locationKey, "Location for the bucket, e.g. 'US', 'EU', or 'us-central1'. Omit to use the Cloud Storage service default.", false)
 	uniformAccessParam := parameters.NewBooleanParameterWithDefault(uniformBucketLevelAccessKey, false, "Whether to enable uniform bucket-level access on the bucket.")

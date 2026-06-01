@@ -112,7 +112,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithDefault("trigger_name", "", "Optional: A specific trigger name pattern to search for."),
 		parameters.NewStringParameterWithDefault("schema_name", "", "Optional: A specific schema name pattern to search for."),

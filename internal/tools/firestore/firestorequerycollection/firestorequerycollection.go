@@ -116,7 +116,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 // Initialize creates a new Tool instance from the configuration
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// Create parameters
 	params := createParameters()
 

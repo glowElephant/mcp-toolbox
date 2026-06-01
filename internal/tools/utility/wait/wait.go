@@ -60,7 +60,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(_ map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, _ map[string]sources.Source) (tools.Tool, error) {
 	durationParameter := parameters.NewStringParameter("duration", "The duration to wait for, specified as a string (e.g., '10s', '2m', '1h').")
 	params := parameters.Parameters{durationParameter}
 

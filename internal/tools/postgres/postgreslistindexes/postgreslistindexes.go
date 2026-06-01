@@ -112,7 +112,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithDefault("schema_name", "", "Optional: a text to filter results by schema name. The input is used within a LIKE clause."),
 		parameters.NewStringParameterWithDefault("table_name", "", "Optional: a text to filter results by table name. The input is used within a LIKE clause."),

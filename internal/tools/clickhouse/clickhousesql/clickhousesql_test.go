@@ -15,6 +15,7 @@
 package clickhouse
 
 import (
+	"context"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -123,7 +124,7 @@ func TestSQLConfigInitializeValidSource(t *testing.T) {
 		"test-clickhouse": mockSource,
 	}
 
-	tool, err := config.Initialize(sources)
+	tool, err := config.Initialize(context.Background(), sources)
 	if err != nil {
 		t.Fatalf("Expected no error, got: %v", err)
 	}

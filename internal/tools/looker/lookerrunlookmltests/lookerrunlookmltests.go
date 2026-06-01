@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	projectIdParameter := parameters.NewStringParameter("project_id", "The id of the project to run LookML tests for.")
 	fileIdParameter := parameters.NewStringParameterWithRequired("file_id", "Optional id of the file to run tests for.", false)
 	testParameter := parameters.NewStringParameterWithRequired("test", "Optional name of the test to run.", false)

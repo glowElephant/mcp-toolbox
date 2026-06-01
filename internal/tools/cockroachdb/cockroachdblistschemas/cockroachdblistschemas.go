@@ -82,7 +82,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	rawS, ok := srcs[cfg.Source]
 	if !ok {
 		return nil, fmt.Errorf("no source named %q configured", cfg.Source)

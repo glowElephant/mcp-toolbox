@@ -142,7 +142,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// verify source exists
 	rawS, ok := srcs[cfg.Source]
 	if !ok {
@@ -175,7 +175,6 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 	params := parameters.Parameters{userQueryParameter, exploreRefsParameter}
 
 	// Get cloud-platform token source for Gemini Data Analytics API during initialization
-	ctx := context.Background()
 	ts, err := s.GoogleCloudTokenSourceWithScope(ctx, "https://www.googleapis.com/auth/cloud-platform")
 	if err != nil {
 		return nil, fmt.Errorf("failed to get cloud-platform token source: %w", err)

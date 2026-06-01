@@ -67,7 +67,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	sqlParameter := parameters.NewStringParameter("sql", "The SQL query to execute against the Trino database.")
 	params := parameters.Parameters{sqlParameter}
 

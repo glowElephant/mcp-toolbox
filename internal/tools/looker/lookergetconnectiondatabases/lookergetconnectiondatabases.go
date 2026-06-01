@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	connParameter := parameters.NewStringParameter("conn", "The connection containing the databases.")
 	params := parameters.Parameters{connParameter}
 

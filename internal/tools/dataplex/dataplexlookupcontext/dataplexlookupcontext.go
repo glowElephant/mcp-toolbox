@@ -69,7 +69,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	resources := parameters.NewArrayParameter("resources",
 		"Required. A list of up to 10 resource names. Resources may belong to different projects, but all must belong to the same location.",
 		parameters.NewStringParameter("resource",

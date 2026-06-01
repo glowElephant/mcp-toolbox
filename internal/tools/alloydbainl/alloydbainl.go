@@ -70,7 +70,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	numParams := len(cfg.NLConfigParameters)
 	quotedNameParts := make([]string, 0, numParams)
 	placeholderParts := make([]string, 0, numParams)

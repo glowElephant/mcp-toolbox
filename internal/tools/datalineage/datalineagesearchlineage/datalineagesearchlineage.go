@@ -82,7 +82,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	locations := parameters.NewArrayParameter(
 		"locations",
 		"Required. The locations to search in. Must contain at least 1 location. The first location will be used to initiate the search.",

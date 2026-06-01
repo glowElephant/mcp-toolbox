@@ -35,7 +35,7 @@ type stubConfig struct {
 }
 
 func (stubConfig) ToolConfigType() string { return "stub" }
-func (stubConfig) Initialize(map[string]sources.Source) (tools.Tool, error) {
+func (stubConfig) Initialize(context.Context, map[string]sources.Source) (tools.Tool, error) {
 	return nil, nil
 }
 

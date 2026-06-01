@@ -76,7 +76,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	actionParameter := parameters.NewStringParameterWithRequired("action", "The analysis to run. Can be 'projects', 'models', or 'explores'.", true)
 	projectParameter := parameters.NewStringParameterWithRequired("project", "The Looker project to analyze (optional).", false)
 	modelParameter := parameters.NewStringParameterWithRequired("model", "The Looker model to analyze (optional).", false)

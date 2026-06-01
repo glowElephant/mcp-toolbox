@@ -91,7 +91,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 // Initialize creates a new Tool instance from the configuration
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// Set default limit if not specified
 	if cfg.Limit == "" {
 		cfg.Limit = fmt.Sprintf("%d", defaultLimit)

@@ -72,7 +72,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	startTimeDescription := fmt.Sprintf("Start time in RFC3339 format (e.g., 2025-12-09T00:00:00Z). Defaults to %d days ago.", defaultStartTimeOffsetDays)
 	limitDescription := fmt.Sprintf("Maximum number of log entries to return. Default: %d.", defaultLimit)
 	params := parameters.Parameters{

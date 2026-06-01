@@ -74,7 +74,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	dashboardidParameter := parameters.NewStringParameter("dashboard_id", "The id of the dashboard to run.")
 
 	params := parameters.Parameters{

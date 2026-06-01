@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	agentIdParameter := parameters.NewStringParameterWithDefault("agent_id", "", "The ID of the agent.")
 	nameParameter := parameters.NewStringParameterWithDefault("name", "", "The name of the agent.")
 	descriptionParameter := parameters.NewStringParameterWithDefault("description", "", "The description of the agent.")

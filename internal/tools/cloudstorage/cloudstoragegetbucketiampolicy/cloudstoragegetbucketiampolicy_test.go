@@ -121,7 +121,7 @@ func TestInvokeValidation(t *testing.T) {
 		Source:      "my-gcs",
 		Description: "Get bucket IAM policy",
 	}
-	tool, err := cfg.Initialize(nil)
+	tool, err := cfg.Initialize(context.Background(), nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
 	}

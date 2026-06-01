@@ -83,7 +83,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 // Initialize sets up the tool with its dependencies and returns a ready-to-use Tool instance.
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 
 	params := parameters.Parameters{}
 

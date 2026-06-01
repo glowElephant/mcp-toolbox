@@ -72,7 +72,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	sourceBucketParam := parameters.NewStringParameter(sourceBucketKey, "Name of the Cloud Storage bucket containing the source object.")
 	sourceObjectParam := parameters.NewStringParameter(sourceObjectKey, "Full source object name (path) within the source bucket, e.g. 'path/to/file.txt'.")
 	destinationBucketParam := parameters.NewStringParameter(destinationBucketKey, "Name of the Cloud Storage bucket to copy into.")

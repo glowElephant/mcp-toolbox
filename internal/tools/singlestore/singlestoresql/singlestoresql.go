@@ -84,7 +84,7 @@ func (cfg Config) ToolConfigType() string {
 //
 //	tools.Tool - the initialized tool instance.
 //	error      - an error if the source is missing, incompatible, or setup fails.
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters, paramManifest, err := parameters.ProcessParameters(cfg.TemplateParameters, cfg.Parameters)
 	if err != nil {
 		return nil, err

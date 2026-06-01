@@ -92,7 +92,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithDefault("tablespace_name", "", "Optional: a text to filter results by tablespace name. The input is used within a LIKE clause."),
 		parameters.NewIntParameterWithDefault("limit", 50, "Optional: The maximum number of rows to return."),

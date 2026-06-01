@@ -70,7 +70,7 @@ func (cfg Config) ToolConfigType() string {
 }
 
 // Initialize initializes the tool from the configuration.
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	rawS, ok := srcs[cfg.Source]
 	if !ok {
 		return nil, fmt.Errorf("source %q not found", cfg.Source)

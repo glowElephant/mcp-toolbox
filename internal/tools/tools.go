@@ -65,7 +65,7 @@ func DecodeConfig(ctx context.Context, resourceType string, name string, decoder
 
 type ToolConfig interface {
 	ToolConfigType() string
-	Initialize(map[string]sources.Source) (Tool, error)
+	Initialize(context.Context, map[string]sources.Source) (Tool, error)
 }
 
 // https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations

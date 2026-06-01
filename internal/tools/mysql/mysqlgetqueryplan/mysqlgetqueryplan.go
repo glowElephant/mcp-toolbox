@@ -69,7 +69,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	sqlParameter := parameters.NewStringParameter("sql_statement", "The sql statement to explain.")
 	params := parameters.Parameters{sqlParameter}
 

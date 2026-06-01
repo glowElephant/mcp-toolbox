@@ -67,7 +67,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	limitDescription := fmt.Sprintf("Maximum number of log entries to return. Default: %d.", defaultLimit)
 	params := parameters.Parameters{
 		parameters.NewIntParameterWithRequired("limit", limitDescription, false),

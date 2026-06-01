@@ -78,7 +78,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// parameters are marked required/ optional based on the vector assist function defintions
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithRequired("table_name", "Table name on which vector workload needs to be set up.", true),

@@ -67,7 +67,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	bucketParam := parameters.NewStringParameter(bucketKey, "Name of the empty Cloud Storage bucket to delete.")
 	params := parameters.Parameters{bucketParam}
 

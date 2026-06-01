@@ -85,7 +85,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithDefault("setting_name", "", "Optional: A specific configuration parameter name pattern to search for."),
 		parameters.NewIntParameterWithDefault("limit", 50, "Optional: The maximum number of rows to return."),

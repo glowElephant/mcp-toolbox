@@ -73,7 +73,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	bucketParam := parameters.NewStringParameter(bucketKey, "Name of the Cloud Storage bucket to upload into.")
 	objectParam := parameters.NewStringParameter(objectKey, "Full object name (path) within the bucket, e.g. 'path/to/file.txt'.")
 	sourceParam := parameters.NewStringParameter(sourceKey, "Absolute local filesystem path of the file to upload. Relative paths and paths containing '..' are rejected.")

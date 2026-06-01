@@ -65,7 +65,7 @@ func (cfg Config) ToolConfigType() string {
 	return listDatabasesType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters, paramManifest, _ := parameters.ProcessParameters(nil, cfg.Parameters)
 
 	t := Tool{

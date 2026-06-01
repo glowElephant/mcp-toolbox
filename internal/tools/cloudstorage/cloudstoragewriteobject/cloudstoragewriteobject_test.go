@@ -127,7 +127,7 @@ func TestInvokeValidation(t *testing.T) {
 		Source:      "my-gcs",
 		Description: "Write",
 	}
-	tool, err := cfg.Initialize(nil)
+	tool, err := cfg.Initialize(context.Background(), nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
 	}

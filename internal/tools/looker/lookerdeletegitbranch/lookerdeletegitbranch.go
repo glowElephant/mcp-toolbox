@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	projectIdParameter := parameters.NewStringParameter("project_id", "The project_id")
 	branchParameter := parameters.NewStringParameter("branch", "The git branch to delete")
 	params := parameters.Parameters{projectIdParameter, branchParameter}

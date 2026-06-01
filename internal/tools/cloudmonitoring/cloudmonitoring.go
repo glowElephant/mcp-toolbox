@@ -66,7 +66,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// Define the parameters internally instead of from the config file.
 	allParameters := parameters.Parameters{
 		parameters.NewStringParameterWithRequired("projectId", "The Id of the Google Cloud project.", true),

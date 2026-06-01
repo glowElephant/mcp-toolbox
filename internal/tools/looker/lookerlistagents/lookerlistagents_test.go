@@ -154,7 +154,7 @@ func TestManifest(t *testing.T) {
 		Description: "test description",
 	}
 
-	tool, err := cfg.Initialize(nil)
+	tool, err := cfg.Initialize(context.Background(), nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
 	}
@@ -191,7 +191,7 @@ func TestAnnotations(t *testing.T) {
 		},
 	}
 
-	tool, err := cfg.Initialize(nil)
+	tool, err := cfg.Initialize(context.Background(), nil)
 	if err != nil {
 		t.Fatalf("failed to initialize tool: %v", err)
 	}

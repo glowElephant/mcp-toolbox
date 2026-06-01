@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	titleParameter := parameters.NewStringParameterWithDefault("title", "", "The title of the dashboard.")
 	descParameter := parameters.NewStringParameterWithDefault("desc", "", "The description of the dashboard.")
 	limitParameter := parameters.NewIntParameterWithDefault("limit", 100, "The number of dashboards to fetch. Default 100")

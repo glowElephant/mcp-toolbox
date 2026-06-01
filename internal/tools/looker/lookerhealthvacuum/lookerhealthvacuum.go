@@ -76,7 +76,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	actionParameter := parameters.NewStringParameterWithRequired("action", "The vacuum action to run. Can be 'models', or 'explores'.", true)
 	projectParameter := parameters.NewStringParameterWithDefault("project", "", "The Looker project to vacuum (optional).")
 	modelParameter := parameters.NewStringParameterWithDefault("model", "", "The Looker model to vacuum (optional).")

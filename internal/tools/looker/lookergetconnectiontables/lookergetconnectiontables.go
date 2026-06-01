@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	connParameter := parameters.NewStringParameter("conn", "The connection containing the tables.")
 	dbParameter := parameters.NewStringParameterWithRequired("db", "The optional database to search", false)
 	schemaParameter := parameters.NewStringParameter("schema", "The schema containing the tables.")

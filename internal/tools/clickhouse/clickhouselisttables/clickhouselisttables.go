@@ -75,7 +75,7 @@ func (cfg Config) ToolConfigType() string {
 	return listTablesType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	databaseParameter := parameters.NewStringParameter(databaseKey, "The database to list tables from.")
 	params := parameters.Parameters{databaseParameter}
 

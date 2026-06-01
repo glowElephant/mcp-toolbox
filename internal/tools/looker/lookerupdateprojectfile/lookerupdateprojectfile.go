@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	projectIdParameter := parameters.NewStringParameter("project_id", "The id of the project containing the files")
 	filePathParameter := parameters.NewStringParameter("file_path", "The path of the file within the project")
 	fileContentParameter := parameters.NewStringParameter("file_content", "The content of the file")

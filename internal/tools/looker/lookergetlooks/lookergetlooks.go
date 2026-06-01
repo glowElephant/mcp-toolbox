@@ -71,7 +71,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	titleParameter := parameters.NewStringParameterWithDefault("title", "", "The title of the look.")
 	descParameter := parameters.NewStringParameterWithDefault("desc", "", "The description of the look.")
 	limitParameter := parameters.NewIntParameterWithDefault("limit", 100, "The number of looks to fetch. Default 100")

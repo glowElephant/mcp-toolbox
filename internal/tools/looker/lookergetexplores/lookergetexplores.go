@@ -72,7 +72,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	modelParameter := parameters.NewStringParameter("model", "The model containing the explores.")
 	params := parameters.Parameters{modelParameter}
 

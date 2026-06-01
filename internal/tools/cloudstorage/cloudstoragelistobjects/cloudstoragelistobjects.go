@@ -78,7 +78,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	bucketParam := parameters.NewStringParameter(bucketKey, "Name of the Cloud Storage bucket to list objects from.")
 	prefixParam := parameters.NewStringParameterWithDefault(prefixKey, "", "Filter results to objects whose names begin with this prefix.")
 	delimiterParam := parameters.NewStringParameterWithDefault(delimiterKey, "", "Delimiter used to group object names (typically '/'). When set, common prefixes are returned as 'prefixes'.")

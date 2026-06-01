@@ -130,7 +130,7 @@ func (cfg Config) ToolConfigType() string {
 	return resourceType
 }
 
-func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (cfg Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	// Define the parameters for the Gemini Data Analytics Query API
 	// The query is the only input parameter.
 	allParameters := parameters.Parameters{

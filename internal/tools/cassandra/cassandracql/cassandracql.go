@@ -71,7 +71,7 @@ func (c Config) ToolConfigType() string {
 }
 
 // Initialize implements tools.ToolConfig.
-func (c Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error) {
+func (c Config) Initialize(ctx context.Context, srcs map[string]sources.Source) (tools.Tool, error) {
 	allParameters, paramManifest, err := parameters.ProcessParameters(c.TemplateParameters, c.Parameters)
 	if err != nil {
 		return nil, err
