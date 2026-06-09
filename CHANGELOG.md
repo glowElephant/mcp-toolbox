@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/googleapis/mcp-toolbox/compare/v1.4.0...v1.5.0) (2026-06-09)
+
+
+### Features
+
+* **tools/bigquery:** Add per tool query label in BigQuery jobs ([#1975](https://github.com/googleapis/mcp-toolbox/issues/1975)) ([3f6a49f](https://github.com/googleapis/mcp-toolbox/commit/3f6a49f93116b8805e5082916f1babf39e6da749))
+
 ## [1.4.0](https://github.com/googleapis/mcp-toolbox/compare/v1.3.0...v1.4.0) (2026-06-04)
 
 
