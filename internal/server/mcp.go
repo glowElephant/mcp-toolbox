@@ -779,11 +779,11 @@ func processMcpMessage(ctx context.Context, body []byte, s *Server, protocolVers
 
 	// Check if message is a notification
 	if baseMessage.Id == nil {
-		err := mcp.NotificationHandler(ctx, body)
+		res, err := mcp.NotificationHandler(ctx, body, header)
 		if err != nil {
 			span.SetStatus(codes.Error, err.Error())
 		}
-		return "", nil, err
+		return "", res, err
 	}
 
 	// Add instrumentation and toolbox version to context for use in method handlers

@@ -35,12 +35,20 @@ import (
 
 // NotificationHandler process notifications request. It MUST NOT send a response.
 // Currently Toolbox does not process any notifications.
-func NotificationHandler(ctx context.Context, body []byte) error {
+func NotificationHandler(ctx context.Context, body []byte, header http.Header) (any, error) {
 	var notification jsonrpc.JSONRPCNotification
 	if err := json.Unmarshal(body, &notification); err != nil {
-		return fmt.Errorf("invalid notification request: %w", err)
+		return nil, fmt.Errorf("invalid notification request: %w", err)
 	}
-	return nil
+	// TODO: check if header `Mcp-Method` is equal to the method
+	if header != nil {
+		headerMethod := header.Get("mcp-method")
+		if headerMethod != notification.Method {
+			err := fmt.Errorf("Mcp-Method header value '%s' does not match body value '%s'", headerMethod, notification.Method)
+			return jsonrpc.NewHeaderMismatchedError(nil, err), err
+		}
+	}
+	return nil, nil
 }
 
 // ProcessMethod returns a response for the request.
